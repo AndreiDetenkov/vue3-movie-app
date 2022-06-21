@@ -8,7 +8,8 @@
     "test:unit": "vitest --environment jsdom",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "prepare": "husky install"
   },
   "dependencies": {
     "pinia": "^2.0.14",
@@ -26,12 +27,26 @@
     "@vue/tsconfig": "^0.1.3",
     "eslint": "^8.5.0",
     "eslint-plugin-vue": "^9.0.0",
+    "husky": "^8.0.1",
     "jsdom": "^20.0.0",
+    "lint-staged": "^13.0.2",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.5.1",
+    "prettier": "2.7.1",
     "typescript": "~4.7.4",
     "vite": "^2.9.12",
     "vitest": "^0.15.1",
     "vue-tsc": "^0.38.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --relative"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
