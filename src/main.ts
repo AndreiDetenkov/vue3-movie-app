@@ -5,6 +5,9 @@ import App from '@/App.vue'
 import router from '@/router'
 import '@/assets/index.css'
 
+import setupInterceptors from '@/plugins/axiosInterceptors/interceptors'
+setupInterceptors()
+
 const app = createApp(App)
 
 app.use(createPinia())
