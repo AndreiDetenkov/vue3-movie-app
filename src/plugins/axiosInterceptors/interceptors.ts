@@ -6,7 +6,6 @@ axios.defaults.baseURL = BASE_URL
 export default function setup() {
   axios.interceptors.request.use(
     function (config: AxiosRequestConfig) {
-      console.log(config)
       config.params = { ...config.params, api_key: API_KEY }
       return config
     },
