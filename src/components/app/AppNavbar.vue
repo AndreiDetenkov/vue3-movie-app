@@ -1,13 +1,10 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
+import type { MenuInterface } from '@/components/app/types'
 
 const { t } = useI18n()
 
-interface MenuInterface {
-  title: string
-  url: string
-}
 const menu = computed<MenuInterface[]>(() => {
   return [
     { title: t('movies'), url: '/movies' },
@@ -19,13 +16,13 @@ const menu = computed<MenuInterface[]>(() => {
 <template>
   <nav class="border-b">
     <div class="container mx-auto px-4">
-      <div class="flex items-center justify-center h-16 divide-x">
+      <div class="flex items-center justify-center h-12 divide-x">
         <router-link
           v-for="item in menu"
           :key="item.title"
           :to="item.url"
-          class="w-32 text-center"
-          active-class="text-pink"
+          class="w-32 text-center font-medium hover:text-pink-600 transition duration-300 ease-in-out"
+          active-class="text-pink-600 underline"
         >
           {{ item.title }}
         </router-link>
@@ -33,8 +30,6 @@ const menu = computed<MenuInterface[]>(() => {
     </div>
   </nav>
 </template>
-
-<style scoped lang="scss"></style>
 
 <i18n>
 {
