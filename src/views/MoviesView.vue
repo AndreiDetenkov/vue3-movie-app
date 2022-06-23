@@ -13,7 +13,7 @@ const { data } = useAxios('/movie/popular', {
     <div class="content-grid">
       <movie-card
         v-for="movie in data?.results"
-        :key="movie.id"
+        :key="movie.id.toString()"
         :movie="movie"
       />
     </div>
@@ -25,6 +25,8 @@ const { data } = useAxios('/movie/popular', {
   @apply text-2xl font-bold mb-8;
 }
 .content-grid {
-  @apply grid 2xl:grid-cols-7 xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4 lg:gap-x-8 lg:gap-y-16;
+  @apply grid
+    2xl:grid-cols-7 xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2
+    gap-4 lg:gap-x-8 lg:gap-y-16;
 }
 </style>

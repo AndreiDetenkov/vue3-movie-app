@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import { IMG_URL } from '@/utils/config'
-
-interface MovieInterface {
-  title: string
-  poster_path: string
-  vote_average: number
-}
+import type { MovieInterface } from '@/components/movies/types'
 
 defineProps<{
   movie: MovieInterface
@@ -13,7 +8,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="shadow-xl rounded-b-md">
+  <div class="shadow-2xl rounded-b-md">
     <img
       :src="`${IMG_URL}/t/p/w500/${movie.poster_path}`"
       alt="movie's poster image"
