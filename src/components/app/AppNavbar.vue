@@ -8,6 +8,7 @@ const { t } = useI18n()
 
 const menu = computed<MenuInterface[]>(() => {
   return [
+    { title: t('home'), url: web_route.home },
     { title: t('movies'), url: web_route.movies },
     { title: t('tv'), url: web_route.tvSeries },
   ]
@@ -60,10 +61,12 @@ const menu = computed<MenuInterface[]>(() => {
 <i18n>
 {
   "en": {
+    "home": "Home",
     "movies": "Movies",
     "tv": "TV Shows"
   },
   "ru": {
+    "home": "Главная",
     "movies": "Фильмы",
     "tv": "Сериалы"
   }
