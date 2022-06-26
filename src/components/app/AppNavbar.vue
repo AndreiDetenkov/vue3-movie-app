@@ -2,13 +2,14 @@
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
 import type { MenuInterface } from '@/components/app/types'
+import { web_route } from '@/utils/web-config'
 
 const { t } = useI18n()
 
 const menu = computed<MenuInterface[]>(() => {
   return [
-    { title: t('movies'), url: '/movies' },
-    { title: t('tv'), url: '/tv-series' },
+    { title: t('movies'), url: web_route.movies },
+    { title: t('tv'), url: web_route.tvSeries },
   ]
 })
 </script>

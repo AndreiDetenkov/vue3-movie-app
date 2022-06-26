@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { useAxios } from '@vueuse/integrations/useAxios'
 import MovieCard from '@/components/movies/MovieCard.vue'
+import { http_method, http_url } from '@/api/types'
 
-const { data } = useAxios('/movie/popular', {
-  method: 'GET',
+const { data } = useAxios(http_url.popularMovie, {
+  method: http_method.GET,
 })
 </script>
 
 <template>
-  <div class=".page-container">
+  <div class="page-container">
     <h2 class="title">Popular</h2>
     <div class="content-grid">
       <movie-card
