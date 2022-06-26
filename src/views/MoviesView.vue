@@ -8,7 +8,7 @@ const { data } = useAxios('/movie/popular', {
 </script>
 
 <template>
-  <div class="container mx-auto p-4">
+  <div class=".page-container">
     <h2 class="title">Popular</h2>
     <div class="content-grid">
       <movie-card

@@ -8,17 +8,29 @@ defineProps<{
 </script>
 
 <template>
-  <div class="shadow-2xl rounded-b-md">
+  <div class=".card">
     <img
       :src="`${IMG_URL}/t/p/w500/${movie.poster_path}`"
-      alt="movie's poster image"
-      class="rounded-t-md"
+      alt="poster image"
+      class="card__image"
     />
-    <div class="p-2 font-medium">
+    <div class="card__content">
       {{ movie.title }}
       {{ movie.vote_average }}
     </div>
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.card {
+  @apply shadow-2xl rounded-b-md;
+
+  &__image {
+    @apply rounded-t-md;
+  }
+
+  &__content {
+    @apply p-2 font-medium;
+  }
+}
+</style>

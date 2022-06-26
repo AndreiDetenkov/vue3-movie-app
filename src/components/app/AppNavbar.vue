@@ -14,15 +14,15 @@ const menu = computed<MenuInterface[]>(() => {
 </script>
 
 <template>
-  <nav class="border-b">
-    <div class="container mx-auto px-4">
-      <div class="flex items-center justify-center h-12 divide-x">
+  <nav class="nav">
+    <div class="nav__container">
+      <div class="menu">
         <router-link
           v-for="item in menu"
           :key="item.title"
           :to="item.url"
-          class="w-32 text-center font-medium hover:text-pink-600 transition duration-300 ease-in-out"
-          active-class="text-pink-600 underline"
+          class="menu__link"
+          active-class="active"
         >
           {{ item.title }}
         </router-link>
@@ -30,6 +30,31 @@ const menu = computed<MenuInterface[]>(() => {
     </div>
   </nav>
 </template>
+
+<style scoped lang="scss">
+.nav {
+  @apply h-12 border-b;
+
+  &__container {
+    @apply container mx-auto;
+  }
+}
+
+.menu {
+  @apply flex justify-center;
+
+  &__link {
+    @apply w-32 h-12
+      flex items-center justify-center
+      text-center font-medium
+      hover:text-pink-600 transition duration-300 ease-in-out;
+  }
+}
+
+.active {
+  @apply text-pink-600 border-b-pink-600 border-b-2;
+}
+</style>
 
 <i18n>
 {
