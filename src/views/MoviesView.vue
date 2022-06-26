@@ -23,11 +23,11 @@ const { data } = useAxios(http_url.popularMovie, {
 
 <style scoped lang="scss">
 .title {
-  @apply text-2xl font-bold mb-8;
+  @apply text-3xl font-bold mb-12 pb-1 border-b;
 }
 .content-grid {
   @apply grid
-    2xl:grid-cols-7 xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2
-    gap-4 lg:gap-x-8 lg:gap-y-16;
+    2xl:grid-cols-6 xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2
+    gap-4 lg:gap-x-8 lg:gap-y-12;
 }
 </style>

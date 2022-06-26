@@ -34,7 +34,7 @@ const menu = computed<MenuInterface[]>(() => {
 
 <style scoped lang="scss">
 .nav {
-  @apply h-12 border-b;
+  @apply h-12 shadow-xl;
 
   &__container {
     @apply container mx-auto;
