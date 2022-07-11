@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useAxios } from '@vueuse/integrations/useAxios'
 import { HTTP_METHOD, HTTP_URL } from '@/api/types'
 import type { MovieInterface } from '@/components/shared/card/types'
@@ -9,14 +9,18 @@ export function useMovie() {
     topRated: [],
   })
 
-  const getAllMovies = async (): Promise<void> => {
-    const [popular, topRated] = await Promise.all([
+  onMounted(() => {
+    getAllMovies()
+  })
+
+  const getAllMovies = async () => {
+    const promises = [
       getMovies(HTTP_URL.popularMovie, HTTP_METHOD.GET),
       getMovies(HTTP_URL.topRatedMovie, HTTP_METHOD.GET),
-    ])
-
-    movies.value.popular = popular || []
-    movies.value.topRated = topRated || []
+    ]
+    const [popular, topRated] = await Promise.all(promises)
+    movies.value.popular = popular
+    movies.value.topRated = topRated
   }
 
   const getMovies = async (
@@ -30,6 +34,5 @@ export function useMovie() {
 
   return {
     movies,
-    getAllMovies,
   }
 }

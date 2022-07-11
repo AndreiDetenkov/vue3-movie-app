@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import { onBeforeMount } from 'vue'
 import { useMovie } from '@/composables/useMovie'
-import CardMain from '@/components/shared/card/CardMain.vue'
 import SectionTitle from '@/components/shared/section/SectionTitle.vue'
 import SectionGrid from '@/components/shared/section/SectionGrid.vue'
+import { defineAsyncComponent } from 'vue'
 
-onBeforeMount(() => {
-  getAllMovies()
+const CardMain = defineAsyncComponent({
+  loader: () => import('@/components/shared/card/CardMain.vue'),
 })
 
-const { getAllMovies, movies } = useMovie()
+const { movies } = useMovie()
 </script>
 
 <template>
@@ -19,7 +18,7 @@ const { getAllMovies, movies } = useMovie()
       :key="movieKey"
       class="mb-20"
     >
-      <section-title title="Popular" />
+      <section-title :title="movieKey" />
       <section-grid>
         <card-main
           v-for="movie in movies[movieKey]"

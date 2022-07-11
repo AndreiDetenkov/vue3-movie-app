@@ -11,7 +11,7 @@ defineProps<{
 <template>
   <div class="relative cursor-pointer">
     <img
-      :src="`${IMG_URL}/t/p/w500${movie.poster_path}`"
+      :src="`${IMG_URL}/t/p/w300${movie.poster_path}`"
       alt="poster image"
       class="rounded-md mb-3"
     />
@@ -21,6 +21,6 @@ defineProps<{
     <p class="font-medium text-xs text-gray-500">
       {{ movie.release_date }} &#x2022;
     </p>
-    <movie-card-rate :rate="movie.vote_average || 0" />
+    <movie-card-rate :rate="movie.vote_average" />
   </div>
 </template>
