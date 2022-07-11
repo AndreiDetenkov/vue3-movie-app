@@ -1,13 +1,9 @@
 <script setup lang="ts">
-import { onBeforeMount, defineAsyncComponent } from 'vue'
-// import CardMain from '@/components/shared/card/CardMain.vue'
+import { onBeforeMount } from 'vue'
+import { useMovie } from '@/composables/useMovie'
+import CardMain from '@/components/shared/card/CardMain.vue'
 import SectionTitle from '@/components/shared/section/SectionTitle.vue'
 import SectionGrid from '@/components/shared/section/SectionGrid.vue'
-import { useMovie } from '@/composables/useMovie'
-
-const CardMain = defineAsyncComponent({
-  loader: () => import('@/components/shared/card/CardMain.vue'),
-})
 
 onBeforeMount(() => {
   getAllMovies()
