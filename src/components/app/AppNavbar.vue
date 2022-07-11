@@ -49,12 +49,12 @@ const menu = computed<MenuInterface[]>(() => {
     @apply w-32 h-12
       flex items-center justify-center
       text-center font-medium
-      hover:text-pink-600 transition duration-300 ease-in-out;
+      hover:text-orange-500 transition duration-300 ease-in-out;
   }
 }
 
 .active {
-  @apply text-pink-600 border-b-pink-600 border-b-2;
+  @apply text-orange-500 border-b-orange-500 border-b-2;
 }
 </style>
 

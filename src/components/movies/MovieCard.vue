@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { IMG_URL } from '@/utils/config'
 import type { MovieInterface } from '@/components/movies/types'
+import MovieCardRate from '@/components/movies/MovieCardRate.vue'
 
 defineProps<{
   movie: MovieInterface
@@ -14,9 +15,9 @@ defineProps<{
       alt="poster image"
       class="card__image"
     />
-    <div class="rate">{{ movie.vote_average }}</div>
     <p class="card__title">{{ movie.title }}</p>
     <p class="card__info">{{ movie.release_date }} &#x2022;</p>
+    <movie-card-rate :rate="movie.vote_average" />
   </div>
 </template>
 
@@ -35,9 +36,5 @@ defineProps<{
   &__info {
     @apply font-medium text-xs text-gray-500;
   }
-}
-
-.rate {
-  @apply w-8 h-8 absolute bottom-14 -right-2 bg-orange-500 text-sm text-white font-bold rounded-full flex items-center justify-center;
 }
 </style>
