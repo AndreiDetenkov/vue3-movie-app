@@ -1,8 +1,9 @@
-export enum http_method {
+export enum HTTP_METHOD {
   GET = 'GET',
   POST = 'POST',
 }
 
-export enum http_url {
+export enum HTTP_URL {
   popularMovie = '/movie/popular',
+  topRatedMovie = '/movie/top_rated',
 }

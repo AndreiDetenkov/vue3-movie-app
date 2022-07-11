@@ -11,7 +11,7 @@ defineProps<{
 <template>
   <div class="relative cursor-pointer">
     <img
-      :src="`${IMG_URL}/t/p/w500/${movie.poster_path}`"
+      :src="`${IMG_URL}/t/p/w500${movie.poster_path}`"
       alt="poster image"
       class="rounded-md mb-3"
     />
