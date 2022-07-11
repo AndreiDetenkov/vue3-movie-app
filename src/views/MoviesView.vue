@@ -2,6 +2,7 @@
 import { useAxios } from '@vueuse/integrations/useAxios'
 import MovieCard from '@/components/movies/MovieCard.vue'
 import { http_method, http_url } from '@/api/types'
+import PageTitle from '@/components/shared/title/PageTitle.vue'
 
 const { data } = useAxios(http_url.popularMovie, {
   method: http_method.GET,
@@ -10,7 +11,8 @@ const { data } = useAxios(http_url.popularMovie, {
 
 <template>
   <div class="page-container">
-    <h2 class="title">Popular</h2>
+    <page-title title="Popular" />
+
     <div class="content-grid">
       <movie-card
         v-for="movie in data?.results"
