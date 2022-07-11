@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { useAxios } from '@vueuse/integrations/useAxios'
-import MovieCard from '@/components/movies/MovieCard.vue'
 import { http_method, http_url } from '@/api/types'
-import PageTitle from '@/components/shared/title/PageTitle.vue'
+import MovieCard from '@/components/movies/MovieCard.vue'
+import PageTitle from '@/components/shared/page/PageTitle.vue'
+import PageGrid from '@/components/shared/page/PageGrid.vue'
 
 const { data } = useAxios(http_url.popularMovie, {
   method: http_method.GET,
@@ -13,23 +14,12 @@ const { data } = useAxios(http_url.popularMovie, {
   <div class="page-container">
     <page-title title="Popular" />
 
-    <div class="content-grid">
+    <page-grid>
       <movie-card
         v-for="movie in data?.results"
         :key="movie.id.toString()"
         :movie="movie"
       />
-    </div>
+    </page-grid>
   </div>
 </template>
-
-<style scoped lang="scss">
-.title {
-  @apply text-3xl font-bold mb-8 pb-1 border-b;
-}
-.content-grid {
-  @apply grid
-    2xl:grid-cols-6 xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2
-    gap-4 lg:gap-x-8 lg:gap-y-12;
-}
-</style>
