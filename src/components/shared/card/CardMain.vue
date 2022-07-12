@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { IMG_URL } from '@/utils/config'
 import type { MovieInterface } from '@/components/shared/card/types'
-import MovieCardRate from '@/components/shared/card/CardRate.vue'
+import MovieCardRate from '@/components/shared/card/rate/CardRate.vue'
 
 defineProps<{
   movie: MovieInterface
@@ -21,6 +21,6 @@ defineProps<{
     <p class="font-medium text-xs text-gray-500">
       {{ movie.release_date }} &#x2022;
     </p>
-    <movie-card-rate :rate="movie.vote_average" />
+    <movie-card-rate :rate="movie.vote_average || 0" />
   </div>
 </template>
