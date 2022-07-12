@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useMovie } from '@/composables/useMovie'
-import SectionTitle from '@/components/shared/section/SectionTitle.vue'
-import SectionGrid from '@/components/shared/section/SectionGrid.vue'
+import SectionTitle from '@/components/shared/section/title/SectionTitle.vue'
+import SectionGrid from '@/components/shared/section/grid/SectionGrid.vue'
 import { defineAsyncComponent } from 'vue'
 
 const CardMain = defineAsyncComponent({
